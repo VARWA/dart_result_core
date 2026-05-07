@@ -2,7 +2,9 @@ name: dart_result_core
 
 description: A lightweight Dart package with Result and Failure types for explicit and composable error handling.
 version: 1.0.0
-homepage: https://pub.dev/packages/dart_result_core
+homepage: https://github.com/bogdanlupanov/dart_result_core
+repository: https://github.com/bogdanlupanov/dart_result_core
+issue_tracker: https://github.com/bogdanlupanov/dart_result_core/issues
 topics:
   - result
   - error-handling
