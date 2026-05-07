@@ -1,0 +1,28 @@
+import 'package:dart_result_core/dart_result_core.dart';
+
+Future<Result<int>> safeDivision(int a, int b) {
+  return Result.tryAsync(
+    () async {
+      if (b == 0) {
+        throw ArgumentError('Division by zero');
+      }
+      return a ~/ b;
+    },
+    onError:
+        (error, stackTrace) =>
+            ParsingFailure(message: error.toString(), stackTrace: stackTrace),
+  );
+}
+
+Future<void> main() async {
+  final value = await safeDivision(10, 2);
+
+  final message = value.match(
+    onSuccess: (data) => 'Result: $data',
+    onFailure: (error) => 'Error: $error',
+  );
+
+  // Example app output.
+  // ignore: avoid_print
+  print(message);
+}
